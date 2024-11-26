@@ -35,6 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  gap: ^3.0.1
+  iconify_flutter: ^0.0.7
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,28 @@ flutter:
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
+  fonts:
+    - family: Fustat-ExtraLight
+      fonts:
+        - asset: lib/assets/fonts/Fustat-ExtraLight.ttf
+    - family: Fustat-Light
+      fonts:
+        - asset: lib/assets/fonts/Fustat-Light.ttf
+    - family: Fustat
+      fonts:
+        - asset: lib/assets/fonts/Fustat-Regular.ttf
+    - family: Fustat-Medium
+      fonts:
+        - asset: lib/assets/fonts/Fustat-Medium.ttf
+    - family: Fustat-SemiBold
+      fonts:
+        - asset: lib/assets/fonts/Fustat-SemiBold.ttf
+    - family: Fustat-Bold
+      fonts:
+        - asset: lib/assets/fonts/Fustat-Bold.ttf
+    - family: Fustat-ExtraBold
+      fonts:
+        - asset: lib/assets/fonts/Fustat-ExtraBold.ttf
   # example:
   # fonts:
   #   - family: Schyler
