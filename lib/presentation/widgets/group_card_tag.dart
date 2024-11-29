@@ -15,7 +15,7 @@ class GroupCardTag extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           text,
-          style: context.body,
+          style: context.tag,
         ),
       ),
     );

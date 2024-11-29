@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:sharebite/constants/colors.dart';
+import 'package:sharebite/constants/extensions.dart';
 
 class FooterMember extends StatelessWidget {
-  const FooterMember({super.key, this.right = false});
+  const FooterMember({super.key, this.last = false, required this.icon, this.right = false});
 
+  final bool last;
   final bool right;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +24,14 @@ class FooterMember extends StatelessWidget {
               color: AppColors.surfaceBlack,
             ),
             borderRadius: BorderRadius.circular(32)),
+        child: Center(
+          child: last
+              ? Text(
+                  right ? "2+" : "+2",
+                  style: context.label,
+                )
+              : Iconify(icon),
+        ),
       ),
     );
   }

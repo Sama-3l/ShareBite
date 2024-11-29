@@ -6,6 +6,5 @@ enum CardType {
   adminReported,
   createdByUser,
   awaitingDelivery,
-  acceptedMulitple,
   leave,
 }

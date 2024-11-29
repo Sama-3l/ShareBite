@@ -17,6 +17,7 @@ class GroupCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {},
       onLongPress: () {},
       child: Container(
         decoration: BoxDecoration(
@@ -24,7 +25,7 @@ class GroupCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: func.getOrderCardColor(cardType),
-              width: 0.8,
+              width: 1,
             )),
         child: Padding(
           padding: const EdgeInsets.all(12),

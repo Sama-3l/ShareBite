@@ -7,7 +7,6 @@ class Methods {
     switch (cardType) {
       case CardType.normal:
       case CardType.waitingForOrder:
-      case CardType.acceptedMulitple:
       case CardType.awaitingDelivery:
       case CardType.leave:
         return AppColors.transparent;

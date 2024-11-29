@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/enum.dart';
-import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
 import 'package:sharebite/presentation/widgets/group_card.dart';
+import 'package:sharebite/presentation/widgets/home_group_type.dart';
+import 'package:sharebite/presentation/widgets/screen_header.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,70 +24,59 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "Home",
-                          style: context.title,
-                        ),
-                        const Spacer(),
-                        IconButton(
-                            padding: EdgeInsets.zero,
-                            iconSize: 24,
-                            onPressed: () {},
-                            icon: const Icon(
-                              CupertinoIcons.bell,
-                            )),
-                        IconButton(
-                            padding: EdgeInsets.zero,
-                            iconSize: 24,
-                            onPressed: () {},
-                            icon: const Icon(
-                              CupertinoIcons.archivebox,
-                            )),
-                      ],
-                    ),
-                    kGap16,
+                ScreenHeader(
+                  title: "Home",
+                  options: [
+                    CupertinoButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {},
+                        child: const Icon(
+                          CupertinoIcons.bell,
+                          size: 24,
+                        )),
+                    CupertinoButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: () {},
+                        child: const Icon(
+                          CupertinoIcons.archivebox,
+                          size: 24,
+                        )),
                   ],
                 ),
                 Expanded(
-                  child: ListView(children: [
-                    GroupCard(),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.acceptedMulitple,
-                    ),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.adminReported,
-                    ),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.awaitingAccess,
-                    ),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.awaitingDelivery,
-                    ),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.closed,
-                    ),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.createdByUser,
-                    ),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.waitingForOrder,
-                    ),
-                    kGap8,
-                    GroupCard(
-                      cardType: CardType.leave,
-                    ),
-                  ]),
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      kGap24,
+                      HomeGroupType(title: "Requested Groups", children: [
+                        GroupCard(
+                          cardType: CardType.awaitingAccess,
+                        ),
+                        kGap8,
+                        GroupCard(
+                          cardType: CardType.awaitingAccess,
+                        ),
+                        kGap8,
+                        GroupCard(
+                          cardType: CardType.awaitingAccess,
+                        ),
+                      ]),
+                      kGap24,
+                      HomeGroupType(title: "Active Groups", children: [
+                        GroupCard(
+                          cardType: CardType.normal,
+                        ),
+                        kGap8,
+                        GroupCard(
+                          cardType: CardType.normal,
+                        ),
+                        kGap8,
+                        GroupCard(
+                          cardType: CardType.normal,
+                        ),
+                      ]),
+                    ],
+                  ),
                 ),
               ],
             ),

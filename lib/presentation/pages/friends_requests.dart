@@ -3,18 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:sharebite/assets/svgs/svgs.dart';
 import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/sizes.dart';
-import 'package:sharebite/presentation/pages/friends_requests.dart';
 import 'package:sharebite/presentation/widgets/friends_elements.dart';
 import 'package:sharebite/presentation/widgets/screen_header.dart';
 
-class FriendsScreen extends StatefulWidget {
-  const FriendsScreen({super.key});
+class FriendsRequests extends StatelessWidget {
+  const FriendsRequests({super.key});
 
-  @override
-  State<FriendsScreen> createState() => _FriendsScreenState();
-}
-
-class _FriendsScreenState extends State<FriendsScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -25,15 +19,16 @@ class _FriendsScreenState extends State<FriendsScreen> {
           child: Column(
             children: [
               ScreenHeader(
-                title: "Friends",
+                title: "Friend Requests",
                 options: [
                   CupertinoButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => FriendsRequests()));
+                        Navigator.of(context).pop();
                       },
                       child: const Icon(
                         CupertinoIcons.person_crop_circle_badge_plus,
+                        color: AppColors.actionOrange,
                         size: 24,
                       )),
                 ],
@@ -41,9 +36,12 @@ class _FriendsScreenState extends State<FriendsScreen> {
               kGap24,
               Expanded(
                   child: ListView.builder(
-                itemCount: 20,
+                itemCount: 5,
                 itemBuilder: (context, index) {
-                  return const FriendsElements(icon: boy1);
+                  return const FriendsElements(
+                    icon: boy1,
+                    friendRequests: true,
+                  );
                 },
               ))
             ],

@@ -32,6 +32,7 @@ class WidgetDecider {
         );
       case CardType.createdByUser:
         return Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             FooterTags(longPress: longPress),
             const Spacer(),
@@ -74,13 +75,13 @@ class WidgetDecider {
           ],
         );
       case CardType.leave:
-        return Row(
+        return const Row(
           children: [
-            FooterTags(longPress: longPress),
-            const Spacer(),
-            const FooterDetail(
-              color: AppColors.red,
-              text: "Leave",
+            FooterCardMembers(),
+            Spacer(),
+            FooterDetail(
+              color: AppColors.green,
+              text: "Select Group",
             ),
           ],
         );
@@ -92,16 +93,6 @@ class WidgetDecider {
             const FooterDetail(
               color: AppColors.green,
               text: "Delivery By: Today, 8:30PM",
-            ),
-          ],
-        );
-      case CardType.acceptedMulitple:
-        return Row(
-          children: [
-            const FooterCardMembers(),
-            const Spacer(),
-            SendRequestButton(
-              longPressed: longPress,
             ),
           ],
         );

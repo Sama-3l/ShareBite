@@ -35,10 +35,10 @@ extension UIThemeExtension on BuildContext {
         color: AppColors.primaryWhite,
       );
 
-  TextStyle get caption => medium.copyWith(
+  TextStyle get label => extraBold.copyWith(
         fontSize: 12,
         letterSpacing: -0.5,
-        color: AppColors.secondaryWhite.withOpacity(0.75),
+        color: AppColors.backgroundBlack,
       );
 
   TextStyle get body => medium.copyWith(
@@ -47,9 +47,20 @@ extension UIThemeExtension on BuildContext {
         color: AppColors.primaryWhite,
       );
 
-  TextStyle get action => extraBold.copyWith(
+  TextStyle get caption => medium.copyWith(
+        fontSize: 12,
+        letterSpacing: -0.5,
+        color: AppColors.secondaryWhite.withOpacity(0.75),
+      );
+
+  TextStyle get tag => medium.copyWith(
         fontSize: 8,
-        letterSpacing: -0.2,
+        // letterSpacing: -0.2,
+        color: AppColors.primaryWhite,
+      );
+
+  TextStyle get action => bold.copyWith(
+        fontSize: 8,
         color: AppColors.backgroundBlack,
       );
 }
