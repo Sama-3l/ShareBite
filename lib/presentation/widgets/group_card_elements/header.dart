@@ -49,7 +49,7 @@ class GroupCardHeader extends StatelessWidget {
               kGap8,
               Text(
                 "Today, 8:30PM",
-                style: context.caption,
+                style: context.body.copyWith(color: context.body.color!.withOpacity(0.5)),
               ),
             ],
           ),

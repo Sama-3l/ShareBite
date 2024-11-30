@@ -1,14 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:sharebite/algorithms/widget_decider.dart';
 import 'package:sharebite/constants/colors.dart';
+import 'package:sharebite/constants/enum.dart';
 import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
 
 class FriendsElements extends StatelessWidget {
-  const FriendsElements({super.key, required this.icon, this.friendRequests = false});
+  FriendsElements({
+    super.key,
+    required this.icon,
+    this.infoType = AccountInfoType.friendList,
+  });
 
   final String icon;
-  final bool friendRequests;
+  final AccountInfoType infoType;
+  final WidgetDecider wd = WidgetDecider();
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +23,7 @@ class FriendsElements extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Container(
         padding: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(color: AppColors.surfaceBlack, borderRadius: BorderRadius.circular(8)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -51,30 +59,31 @@ class FriendsElements extends StatelessWidget {
                         style: context.body,
                       ),
                       const Spacer(),
-                      friendRequests
-                          ? Container()
-                          : Text(
+                      infoType == AccountInfoType.friendList
+                          ? Text(
                               "+91-6386-291-080",
                               style: context.body,
-                            ),
+                            )
+                          : Container(),
                     ],
                   ),
                 ],
               ),
             ),
             // friendRequests ? const Spacer() : Container(),
-            friendRequests
-                ? Container(
-                    decoration: BoxDecoration(border: Border.all(color: AppColors.primaryWhite, width: 0.5), borderRadius: BorderRadius.circular(32)),
-                    child: CupertinoButton(
-                        padding: EdgeInsets.zero,
-                        child: const Icon(
-                          CupertinoIcons.person_badge_plus,
-                          size: 24,
-                        ),
-                        onPressed: () {}),
-                  )
-                : Container(),
+            wd.friendsElementOptions(infoType)
+            // infoType == AccountInfoType.acceptRequest
+            //     ? Container(
+            //         decoration: BoxDecoration(border: Border.all(color: AppColors.primaryWhite, width: 0.5), borderRadius: BorderRadius.circular(32)),
+            //         child: CupertinoButton(
+            //             padding: EdgeInsets.zero,
+            //             child: const Icon(
+            //               CupertinoIcons.person_badge_plus,
+            //               size: 24,
+            //             ),
+            //             onPressed: () {}),
+            //       )
+            //     : Container(),
           ],
         ),
       ),

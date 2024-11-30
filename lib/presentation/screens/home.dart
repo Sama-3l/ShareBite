@@ -52,27 +52,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         GroupCard(
                           cardType: CardType.awaitingAccess,
                         ),
-                        kGap8,
-                        GroupCard(
-                          cardType: CardType.awaitingAccess,
-                        ),
-                        kGap8,
-                        GroupCard(
-                          cardType: CardType.awaitingAccess,
-                        ),
                       ]),
                       kGap24,
-                      HomeGroupType(title: "Active Groups", children: [
+                      HomeGroupType(title: "Accepted Group", children: [
                         GroupCard(
-                          cardType: CardType.normal,
-                        ),
-                        kGap8,
-                        GroupCard(
-                          cardType: CardType.normal,
-                        ),
-                        kGap8,
-                        GroupCard(
-                          cardType: CardType.normal,
+                          cardType: CardType.waitingForOrder,
                         ),
                       ]),
                     ],

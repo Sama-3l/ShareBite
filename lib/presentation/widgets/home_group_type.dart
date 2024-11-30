@@ -17,7 +17,7 @@ class HomeGroupType extends StatelessWidget {
           children: [
             Text(
               title,
-              style: context.caption,
+              style: context.body.copyWith(color: context.body.color!.withOpacity(0.5)),
             ),
             kGap4,
             const Icon(

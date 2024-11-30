@@ -5,6 +5,7 @@ import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/enum.dart';
 import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
+import 'package:sharebite/presentation/pages/chat_page.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/header.dart';
 
 class GroupCard extends StatelessWidget {
@@ -17,7 +18,24 @@ class GroupCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        switch (cardType) {
+          case CardType.createdByUser:
+          case CardType.waitingForOrder:
+          case CardType.awaitingDelivery:
+          case CardType.closed:
+            {
+              Navigator.of(context, rootNavigator: true).push(CupertinoPageRoute(builder: (context) => ChatPage()));
+              break;
+            }
+          case CardType.adminReported:
+            break;
+          case CardType.normal:
+          case CardType.awaitingAccess:
+          case CardType.leave:
+            break;
+        }
+      },
       onLongPress: () {},
       child: Container(
         decoration: BoxDecoration(

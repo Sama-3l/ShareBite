@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/enum.dart';
+import 'package:sharebite/presentation/widgets/friends_elements/friends_element_option.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/footer_action.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/footer_card_members.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/footer_detail.dart';
@@ -96,6 +97,51 @@ class WidgetDecider {
             ),
           ],
         );
+    }
+  }
+
+  Widget friendsElementOptions(AccountInfoType infoType, {bool currAdmin = false}) {
+    switch (infoType) {
+      case AccountInfoType.friendList:
+        return Container();
+      case AccountInfoType.addFriend:
+        return FriendsElementOptions(
+          icon: CupertinoIcons.person_badge_plus,
+          onPressed: () {},
+        );
+      case AccountInfoType.acceptRequest:
+        return FriendsElementOptions(
+          icon: CupertinoIcons.person_badge_plus,
+          onPressed: () {},
+        );
+      case AccountInfoType.chatMembers:
+        return Row(children: [
+          FriendsElementOptions(
+            icon: CupertinoIcons.exclamationmark_triangle,
+            onPressed: () {},
+          ),
+          FriendsElementOptions(
+            icon: CupertinoIcons.person_badge_plus,
+            onPressed: () {},
+          )
+        ]);
+      case AccountInfoType.adminChatMembers:
+        return Row(children: [
+          currAdmin
+              ? Container()
+              : FriendsElementOptions(
+                  icon: CupertinoIcons.trash,
+                  onPressed: () {},
+                ),
+          FriendsElementOptions(
+            icon: CupertinoIcons.exclamationmark_triangle,
+            onPressed: () {},
+          ),
+          FriendsElementOptions(
+            icon: CupertinoIcons.person_badge_plus,
+            onPressed: () {},
+          )
+        ]);
     }
   }
 }

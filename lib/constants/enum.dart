@@ -8,3 +8,11 @@ enum CardType {
   awaitingDelivery,
   leave,
 }
+
+enum AccountInfoType {
+  friendList,
+  addFriend,
+  acceptRequest,
+  chatMembers,
+  adminChatMembers
+}

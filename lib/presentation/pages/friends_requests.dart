@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sharebite/assets/svgs/svgs.dart';
 import 'package:sharebite/constants/colors.dart';
+import 'package:sharebite/constants/enum.dart';
 import 'package:sharebite/constants/sizes.dart';
-import 'package:sharebite/presentation/widgets/friends_elements.dart';
+import 'package:sharebite/presentation/widgets/friends_elements/friends_page_elements.dart';
 import 'package:sharebite/presentation/widgets/screen_header.dart';
 
 class FriendsRequests extends StatelessWidget {
@@ -38,9 +39,9 @@ class FriendsRequests extends StatelessWidget {
                   child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return const FriendsElements(
+                  return FriendsElements(
                     icon: boy1,
-                    friendRequests: true,
+                    infoType: AccountInfoType.acceptRequest,
                   );
                 },
               ))

@@ -29,6 +29,18 @@ extension UIThemeExtension on BuildContext {
         color: AppColors.primaryWhite,
       );
 
+  TextStyle get heading2 => semiBold.copyWith(
+        fontSize: 16,
+        letterSpacing: -0.5,
+        color: AppColors.primaryWhite,
+      );
+
+  TextStyle get headingWhite => extraBold.copyWith(
+        fontSize: 16,
+        letterSpacing: -0.5,
+        color: AppColors.secondaryWhite,
+      );
+
   TextStyle get subHeading => bold.copyWith(
         fontSize: 16,
         letterSpacing: -0.5,
@@ -47,15 +59,20 @@ extension UIThemeExtension on BuildContext {
         color: AppColors.primaryWhite,
       );
 
-  TextStyle get caption => medium.copyWith(
-        fontSize: 12,
-        letterSpacing: -0.5,
-        color: AppColors.secondaryWhite.withOpacity(0.75),
+  TextStyle get chatText => medium.copyWith(
+        fontSize: 16,
+        letterSpacing: -0.3,
+        color: AppColors.primaryWhite,
       );
+
+  // TextStyle get caption => medium.copyWith(
+  //       fontSize: 12,
+  //       letterSpacing: -0.5,
+  //       color: AppColors.secondaryWhite.withOpacity(0.75),
+  //     );
 
   TextStyle get tag => medium.copyWith(
         fontSize: 8,
-        // letterSpacing: -0.2,
         color: AppColors.primaryWhite,
       );
 
