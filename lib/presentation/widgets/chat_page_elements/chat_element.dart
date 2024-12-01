@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:sharebite/assets/svgs/svgs.dart';
-import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
+import 'package:sharebite/presentation/widgets/avatar.dart';
 
 class ChatElement extends StatelessWidget {
   const ChatElement({super.key});
@@ -19,16 +19,7 @@ class ChatElement extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 40,
-                height: 40,
-                padding: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), color: AppColors.primaryWhite),
-                child: const Iconify(
-                  boy1,
-                  size: double.infinity,
-                ),
-              ),
+              const Avatar(size: 40, icon: boy1),
               kGap16,
               Row(
                 children: [
@@ -37,13 +28,13 @@ class ChatElement extends StatelessWidget {
                     style: context.heading2,
                   ),
                   kGap4,
-                  Iconify(
+                  const Iconify(
                     verified,
                     size: 12,
                   )
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 "Today, 8:31 PM",
                 style: context.tag.copyWith(color: context.tag.color!.withOpacity(0.6)),

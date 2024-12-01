@@ -53,6 +53,12 @@ extension UIThemeExtension on BuildContext {
         color: AppColors.backgroundBlack,
       );
 
+  TextStyle get labelWhite => extraBold.copyWith(
+        fontSize: 12,
+        letterSpacing: -0.5,
+        color: AppColors.secondaryWhite,
+      );
+
   TextStyle get body => medium.copyWith(
         fontSize: 12,
         letterSpacing: -0.2,

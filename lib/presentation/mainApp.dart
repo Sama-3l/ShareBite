@@ -6,7 +6,9 @@ import 'package:sharebite/presentation/screens/friends.dart';
 import 'package:sharebite/presentation/screens/home.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final CupertinoTabController controller = CupertinoTabController();
 
   // This widget is the root of your application.
   @override
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: theme,
         home: CupertinoTabScaffold(
+          controller: controller,
           tabBar: CupertinoTabBar(height: 56, items: [
             CupertinoIcons.home.toNavBarItem('Home'),
             CupertinoIcons.person_2.toNavBarItem('Friends'),

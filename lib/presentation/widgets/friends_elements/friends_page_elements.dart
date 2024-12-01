@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:sharebite/algorithms/widget_decider.dart';
 import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/enum.dart';
 import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
+import 'package:sharebite/presentation/widgets/avatar.dart';
 
 class FriendsElements extends StatelessWidget {
   FriendsElements({
@@ -27,20 +27,10 @@ class FriendsElements extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: 56,
-              width: 56,
-              decoration: BoxDecoration(
-                color: AppColors.primaryWhite,
-                borderRadius: BorderRadius.circular(56),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Iconify(
-                  icon,
-                  size: double.infinity,
-                ),
-              ),
+            Avatar(
+              size: 56,
+              icon: icon,
+              padding: const EdgeInsets.all(8.0),
             ),
             kGap8,
             Expanded(
