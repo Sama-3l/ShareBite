@@ -1,11 +1,16 @@
 import 'package:flutter/cupertino.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:sharebite/assets/svgs/svgs.dart';
 import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/enum.dart';
+import 'package:sharebite/constants/sizes.dart';
+import 'package:sharebite/presentation/widgets/add_group_options.dart';
 import 'package:sharebite/presentation/widgets/friends_elements/friends_element_option.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/footer_action.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/footer_card_members.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/footer_detail.dart';
 import 'package:sharebite/presentation/widgets/group_card_elements/footer_tags.dart';
+import 'package:sharebite/presentation/widgets/textfield_element.dart';
 
 class WidgetDecider {
   Widget cardFooter(CardType cardType, bool longPress) {
@@ -142,6 +147,49 @@ class WidgetDecider {
             onPressed: () {},
           )
         ]);
+    }
+  }
+
+  List<Widget> advancedOptions(bool showOptions, {List<TextEditingController>? controller}) {
+    if (!showOptions) {
+      return [
+        const AddGroupOptions()
+      ];
+    } else {
+      return [
+        AddPageElement(
+          controller: controller![0],
+          title: "Description",
+          placeholder: "Short Description",
+          icon: CupertinoIcons.square_pencil,
+          maxLength: 50,
+        ),
+        kGap16,
+        const Row(
+          children: [
+            Expanded(
+              child: AddPageElement(
+                title: "Hostel Limitation",
+                placeholder: "Select",
+                iconify: true,
+                iconifyWidget: Iconify(
+                  building,
+                  size: 16,
+                  color: AppColors.primaryWhite,
+                ),
+              ),
+            ),
+            kGap16,
+            Expanded(
+              child: AddPageElement(
+                title: "Additional Tag",
+                placeholder: "BOGO",
+                icon: CupertinoIcons.tag,
+              ),
+            ),
+          ],
+        ),
+      ];
     }
   }
 }

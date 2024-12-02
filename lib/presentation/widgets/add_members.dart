@@ -3,31 +3,16 @@ import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
 
-class AddPageElement extends StatelessWidget {
-  const AddPageElement({
-    super.key,
-    required this.title,
-    required this.placeholder,
-    this.icon,
-    this.iconify = false,
-    this.iconifyWidget,
-    this.maxLength,
-    this.controller,
-  });
+class AddMembers extends StatelessWidget {
+  const AddMembers({super.key, required this.title, required this.placeholder});
 
   final String title;
-  final IconData? icon;
   final String placeholder;
-  final bool iconify;
-  final Widget? iconifyWidget;
-  final int? maxLength;
-  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           title,
@@ -37,9 +22,7 @@ class AddPageElement extends StatelessWidget {
         Stack(
           children: [
             CupertinoTextField(
-              controller: controller,
               minLines: 1,
-              maxLength: maxLength,
               maxLines: 6,
               decoration: BoxDecoration(
                 color: AppColors.backgroundBlack,
@@ -59,26 +42,14 @@ class AddPageElement extends StatelessWidget {
             Positioned(
               top: 12,
               left: 8,
-              child: iconify
-                  ? iconifyWidget ?? const SizedBox()
-                  : Icon(
-                      icon,
-                      size: 16,
-                      color: AppColors.primaryWhite.withOpacity(0.3),
-                    ),
+              child: Icon(
+                CupertinoIcons.envelope,
+                size: 16,
+                color: AppColors.primaryWhite.withOpacity(0.3),
+              ),
             ),
           ],
         ),
-        maxLength != null ? kGap4 : Container(),
-        maxLength != null
-            ? Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "${controller!.text.length}/$maxLength",
-                  style: context.tag,
-                ),
-              )
-            : Container(),
       ],
     );
   }

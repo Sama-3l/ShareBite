@@ -16,3 +16,16 @@ enum AccountInfoType {
   chatMembers,
   adminChatMembers
 }
+
+enum Hostel {
+  ashwatha,
+  ashoka,
+  jasmine,
+  jasmineAnnex
+}
+
+enum Platform {
+  eatsure,
+  zomato,
+  swiggy
+}

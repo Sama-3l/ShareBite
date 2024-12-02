@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(40),
                   color: AppColors.primaryWhite,
                   padding: const EdgeInsets.all(16),
-                  onPressed: () => Navigator.of(context, rootNavigator: true).push(CupertinoPageRoute(builder: (context) => const AddNewGroup(title: "Add New Group"))),
+                  onPressed: () => Navigator.of(context, rootNavigator: true).push(CupertinoPageRoute(builder: (context) => AddNewGroup(title: "Add New Group"))),
                   child: const Icon(
                     CupertinoIcons.add,
                   ),
