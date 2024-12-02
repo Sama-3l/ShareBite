@@ -18,6 +18,12 @@ extension FontWeightExtension on BuildContext {
 }
 
 extension UIThemeExtension on BuildContext {
+  TextStyle get biggestTitle => bold.copyWith(
+        fontSize: 32,
+        letterSpacing: -2.5,
+        color: AppColors.secondaryWhite,
+      );
+
   TextStyle get title => extraBold.copyWith(
         fontSize: 24,
         color: AppColors.primaryWhite,
@@ -49,6 +55,12 @@ extension UIThemeExtension on BuildContext {
 
   TextStyle get label => extraBold.copyWith(
         fontSize: 12,
+        letterSpacing: -0.5,
+        color: AppColors.backgroundBlack,
+      );
+
+  TextStyle get buttonText => extraBold.copyWith(
+        fontSize: 16,
         letterSpacing: -0.5,
         color: AppColors.backgroundBlack,
       );
@@ -85,6 +97,10 @@ extension UIThemeExtension on BuildContext {
   TextStyle get action => bold.copyWith(
         fontSize: 8,
         color: AppColors.backgroundBlack,
+      );
+
+  TextStyle get note => medium.copyWith(
+        fontSize: 10,
       );
 }
 
