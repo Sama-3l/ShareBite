@@ -5,10 +5,14 @@ import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
 import 'package:sharebite/presentation/widgets/choose_avatar.dart';
+import 'package:sharebite/presentation/widgets/otp_textfield.dart';
+import 'package:sharebite/presentation/widgets/screen_header.dart';
 import 'package:sharebite/presentation/widgets/textfield_element.dart';
 
 class CreateAccount extends StatelessWidget {
-  const CreateAccount({super.key});
+  CreateAccount({super.key});
+
+  final List<TextEditingController> otpController = List.generate(4, (index) => TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +26,7 @@ class CreateAccount extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Create Account",
-                    style: context.title,
-                  ),
+                  const ScreenHeader(title: "Create Account", options: []),
                   kGap24,
                   Expanded(
                     child: ListView(
@@ -46,16 +47,29 @@ class CreateAccount extends StatelessWidget {
                               icon: CupertinoIcons.phone,
                             ),
                             kGap8,
-                            CupertinoButton(
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                borderRadius: BorderRadius.circular(4),
-                                minSize: 0,
-                                color: AppColors.secondaryWhite,
-                                child: Text(
-                                  "Get OTP",
-                                  style: context.label,
-                                ),
-                                onPressed: () {})
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.52,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  for (int i = 0; i < otpController.length; i++) ...[
+                                    Expanded(child: OtpTextfield(controller: otpController[i])),
+                                    if (i < otpController.length - 1) kGap4, // Add gap except after the last item
+                                  ],
+                                  kGap8,
+                                  CupertinoButton(
+                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                      borderRadius: BorderRadius.circular(4),
+                                      minSize: 0,
+                                      color: AppColors.secondaryWhite,
+                                      child: Text(
+                                        "Get OTP",
+                                        style: context.label,
+                                      ),
+                                      onPressed: () {}),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                         kGap16,

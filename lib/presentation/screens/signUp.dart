@@ -7,7 +7,9 @@ import 'package:sharebite/constants/sizes.dart';
 import 'package:sharebite/presentation/screens/create_account.dart';
 
 class Signup extends StatelessWidget {
-  const Signup({super.key});
+  Signup({super.key});
+
+  final List<TextEditingController> otpController = List.generate(4, (index) => TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class Signup extends StatelessWidget {
                         )
                       ],
                     ),
-                    onPressed: () => Navigator.of(context).push(CupertinoPageRoute(builder: (context) => const CreateAccount())))
+                    onPressed: () => Navigator.of(context).push(CupertinoPageRoute(builder: (context) => CreateAccount())))
               ],
             ),
           ),

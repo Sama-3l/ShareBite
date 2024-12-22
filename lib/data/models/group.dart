@@ -20,9 +20,8 @@ class Group {
   final List<Hostel>? hostelRestrictions;
   final String? additionalTag;
   final String? invoice;
-  final String adminUserId;
+  final UserModel adminUser;
   final bool isDeleted;
-  final bool verified;
 
   Group({
     required this.id,
@@ -39,8 +38,7 @@ class Group {
     this.hostelRestrictions,
     this.additionalTag,
     this.invoice,
-    required this.adminUserId,
+    required this.adminUser,
     required this.isDeleted,
-    required this.verified,
   });
 }

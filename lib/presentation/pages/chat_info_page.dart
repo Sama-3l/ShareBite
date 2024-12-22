@@ -4,6 +4,7 @@ import 'package:sharebite/constants/extensions.dart';
 import 'package:sharebite/constants/sizes.dart';
 import 'package:sharebite/presentation/widgets/chat_page_elements/chat_info_element.dart';
 import 'package:sharebite/presentation/widgets/chat_page_elements/chat_members.dart';
+import 'package:sharebite/presentation/widgets/screen_header.dart';
 
 class ChatInfoPage extends StatelessWidget {
   const ChatInfoPage({super.key, this.admin = true});
@@ -20,24 +21,17 @@ class ChatInfoPage extends StatelessWidget {
           child: Column(
             children: [
               admin
-                  ? Row(
-                      children: [
-                        Text(
-                          "Ashwatha Boys",
-                          style: context.title,
+                  ? ScreenHeader(title: "Ashwatha Boys", options: [
+                      CupertinoButton(
+                        padding: EdgeInsets.zero,
+                        minSize: 24,
+                        onPressed: () {},
+                        child: const Icon(
+                          CupertinoIcons.pencil_circle,
+                          color: AppColors.primaryWhite,
                         ),
-                        const Spacer(),
-                        CupertinoButton(
-                          padding: EdgeInsets.zero,
-                          minSize: 24,
-                          onPressed: () {},
-                          child: const Icon(
-                            CupertinoIcons.pencil_circle,
-                            color: AppColors.primaryWhite,
-                          ),
-                        )
-                      ],
-                    )
+                      )
+                    ])
                   : Align(
                       alignment: Alignment.center,
                       child: Text(
@@ -50,7 +44,7 @@ class ChatInfoPage extends StatelessWidget {
                 title: "Description",
                 info: "Say Hello! Let us know what you eating. It’ll be okay",
               ),
-              kGap16,
+              kGap8,
               Expanded(
                 child: ListView(
                   shrinkWrap: true,
@@ -71,7 +65,7 @@ class ChatInfoPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    kGap16,
+                    kGap8,
                     const Row(
                       children: [
                         Expanded(
@@ -88,21 +82,21 @@ class ChatInfoPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    kGap16,
+                    kGap8,
                     ChatInfoElement(
                       title: "Other Tags",
                       info: "BOGO Deals",
                       invoiceElement: true,
                       onPressed: () {},
                     ),
-                    kGap16,
+                    kGap8,
                     ChatInfoElement(
                       title: "Invoice",
                       info: "Invoice.pdf",
                       invoiceElement: true,
                       onPressed: () {},
                     ),
-                    kGap16,
+                    kGap8,
                     const ChatMembers()
                   ],
                 ),

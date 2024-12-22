@@ -29,6 +29,18 @@ extension UIThemeExtension on BuildContext {
         color: AppColors.primaryWhite,
       );
 
+  TextStyle get accName => extraBold.copyWith(
+        fontSize: 24,
+        letterSpacing: -1,
+        color: AppColors.primaryWhite,
+      );
+
+  TextStyle get accRollNum => light.copyWith(
+        fontSize: 16,
+        letterSpacing: -0.5,
+        color: AppColors.primaryWhite,
+      );
+
   TextStyle get heading => extraBold.copyWith(
         fontSize: 16,
         letterSpacing: -0.5,

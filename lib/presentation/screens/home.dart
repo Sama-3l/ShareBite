@@ -3,6 +3,7 @@ import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/enum.dart';
 import 'package:sharebite/constants/sizes.dart';
 import 'package:sharebite/presentation/pages/add_new_group.dart';
+import 'package:sharebite/presentation/pages/archives.dart';
 import 'package:sharebite/presentation/widgets/group_card.dart';
 import 'package:sharebite/presentation/widgets/home_group_type.dart';
 import 'package:sharebite/presentation/widgets/screen_header.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             )),
                         CupertinoButton(
                             padding: EdgeInsets.zero,
-                            onPressed: () {},
+                            onPressed: () => Navigator.of(context, rootNavigator: true).push(CupertinoPageRoute(builder: (context) => ArchivesPage())),
                             child: const Icon(
                               CupertinoIcons.archivebox,
                               size: 24,

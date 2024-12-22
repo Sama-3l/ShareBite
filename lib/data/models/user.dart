@@ -10,6 +10,8 @@ class UserModel {
   final Hostel hostel;
   final int roomNumber;
   final String avatar;
+  final int? commendsNumber;
+  final int? reportsNumber;
   final List<Commend>? commends;
   final List<Report>? reports;
   final List<UserModel>? friends;
@@ -23,6 +25,8 @@ class UserModel {
     required this.hostel,
     required this.roomNumber,
     required this.avatar,
+    this.commendsNumber,
+    this.reportsNumber,
     this.commends,
     this.reports,
     this.friends,

@@ -9,4 +9,5 @@ class AppColors {
   static const surfaceBlack = Color(0xff262628);
   static const actionOrange = Color(0xffFF7F11);
   static const green = Color(0xff32D74B);
+  static const creator = Color(0xffFFD60A);
 }

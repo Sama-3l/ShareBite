@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:sharebite/assets/svgs/svgs.dart';
 import 'package:sharebite/constants/colors.dart';
 import 'package:sharebite/constants/enum.dart';

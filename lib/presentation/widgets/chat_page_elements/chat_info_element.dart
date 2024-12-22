@@ -11,12 +11,14 @@ class ChatInfoElement extends StatelessWidget {
     required this.title,
     required this.info,
     this.invoiceElement = false,
+    this.color,
     this.onPressed,
   }) : super(key: key);
 
   final String title;
   final String info;
   final bool invoiceElement;
+  final Color? color;
   final Function()? onPressed;
 
   @override
@@ -26,7 +28,7 @@ class ChatInfoElement extends StatelessWidget {
       children: [
         Text(
           title,
-          style: context.headingWhite,
+          style: color == null ? context.headingWhite : context.headingWhite.copyWith(color: color),
         ),
         invoiceElement ? kGap4 : Container(),
         invoiceElement
